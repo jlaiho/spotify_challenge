@@ -21,7 +21,8 @@ class BestBefore:
         if parts[0] < 2000:
           parts[0] += 2000
         self.possible_dates.append(datetime.date(int(parts[0]), int(parts[1]), int(parts[2])))
-      except: ValueError
+      except (ValueError, IndexError):
+        pass
     
   def parse_input(self, input):
     date_parts = input.split('/')
